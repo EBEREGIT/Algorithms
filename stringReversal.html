@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // reverse string
+      // using built in functions
+      function stringReversal(str) {
+        let newString = str
+          .split("")
+          .reverse()
+          .join("");
+        return newString;
+      }
+
+      // using built in functions and spread
+      function stringReversal(str) {
+        let newString = [...str].reverse().join("");
+        return newString;
+      }
+
+      // using for-loop
+      function stringReversal(str) {
+        let newString = "";
+
+        for (let i = str.length; i >= 0; i--) {
+          newString += str[i];
+        }
+        return newString;
+      }
+
+      // for...in
+      function stringReversal(str) {
+        let newString = "";
+
+        for (s in str) {
+          newString = str[s] + newString;
+        }
+
+        return newString;
+      }
+
+      // for...of
+      function stringReversal(str) {
+        let newString = "";
+
+        for (s of str) {
+          newString = s + newString;
+        }
+
+        return newString;
+      }
+
+      //  using reduce
+      function stringReversal(str) {
+        let newString = [...str].reduce((acc, char) => char + acc);
+        return newString;
+      }
+
+      function stringReversal(str) {
+        let newString = str.split("").reduce((acc, char) => char + acc);
+        return newString;
+      }
+      stringReversal("samson");
+    </script>
+  </body>
+</html>

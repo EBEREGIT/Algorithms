@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for...of
+      // using split() method, for...of loop and if...statement
+      function vowelsCounter(text) {
+        let splittedText = text.toLowerCase().split("");
+        let counter = 0;
+
+        for (char of splittedText) {
+          if (
+            char === "a" ||
+            char === "e" ||
+            char === "i" ||
+            char === "o" ||
+            char === "u"
+          ) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      // using split() method, includes method, for...of loop and if...statement
+      function vowelsCounter(text) {
+        let splittedText = text.toLowerCase().split("");
+        let counter = 0;
+        let vowels = ["a", "e", "i", "o", "u"];
+
+        for (char of splittedText) {
+          if (vowels.includes(char)) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      // using spread operator, includes method, for...of loop and if...statement
+      function vowelsCounter(text) {
+        let counter = 0;
+        let vowels = ["a", "e", "i", "o", "u"];
+
+        for (char of [...text]) {
+          if (vowels.includes(char)) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      // using a spread operator, for...of loop and if...statement
+      function vowelsCounter(text) {
+        let counter = 0;
+
+        for (char of [...text]) {
+          if (
+            char === "a" ||
+            char === "e" ||
+            char === "i" ||
+            char === "o" ||
+            char === "u"
+          ) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      // for... in
+      // using split() method, for...in loop and if...statement
+      function vowelsCounter(text) {
+        let splittedText = text.toLowerCase().split("");
+        let counter = 0;
+
+        for (char in splittedText) {
+          if (
+            splittedText[char] === "a" ||
+            splittedText[char] === "e" ||
+            splittedText[char] === "i" ||
+            splittedText[char] === "o" ||
+            splittedText[char] === "u"
+          ) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      // using split() method, includes() method, for...in loop and if...statement
+      function vowelsCounter(text) {
+        let splittedText = text.toLowerCase().split("");
+        let counter = 0;
+        let vowels = ["a", "e", "i", "o", "u"];
+
+        for (char in splittedText) {
+          if (vowels.includes(splittedText[char])) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      // using spread operator, includes() method, for...in loop and if...statement
+      function vowelsCounter(text) {
+        let counter = 0;
+        let vowels = ["a", "e", "i", "o", "u"];
+
+        for (char in [...text]) {
+          if (vowels.includes(text[char])) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      vowelsCounter("njoku");
+
+      // using a spread operator, for...in loop and if...statement
+      function vowelsCounter(text) {
+        let counter = 0;
+
+        for (char in [...text]) {
+          if (
+            text[char] === "a" ||
+            text[char] === "e" ||
+            text[char] === "i" ||
+            text[char] === "o" ||
+            text[char] === "u"
+          ) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      // for... loop
+      //  spread operator, for...loop and if...statement
+      function vowelsCounter(text) {
+        let counter = 0;
+
+        for (let i = 0; i <= [...text].length; i++) {
+          if (
+            text[i] === "a" ||
+            text[i] === "e" ||
+            text[i] === "i" ||
+            text[i] === "o" ||
+            text[i] === "u"
+          ) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      //  spread operator, includes() method, for...loop and if...statement
+      function vowelsCounter(text) {
+        let counter = 0;
+        let vowels = ["a", "e", "i", "o", "u"];
+
+        for (let i = 0; i <= [...text].length; i++) {
+          if (vowels.includes(text[i])) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      // using split() method, for... loop and if...statement
+      function vowelsCounter(text) {
+        let splittedText = text.toLowerCase().split("");
+        let counter = 0;
+
+        for (let i = 0; i <= splittedText.length; i++) {
+          if (
+            splittedText[i] === "a" ||
+            splittedText[i] === "e" ||
+            splittedText[i] === "i" ||
+            splittedText[i] === "o" ||
+            splittedText[i] === "u"
+          ) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      // using split() method, includes() method, for... loop and if...statement
+      function vowelsCounter(text) {
+        let splittedText = text.toLowerCase().split("");
+        let counter = 0;
+        let vowels = ["a", "e", "i", "o", "u"];
+
+        for (let i = 0; i <= splittedText.length; i++) {
+          if (vowels.includes(splittedText[i])) {
+            counter++;
+          }
+        }
+
+        return counter;
+      }
+
+      //   regEx and if...statement
+      function vowelsCounter(text) {
+        let regEx = /[aeiou]/gi;
+        let matchedVowels = text.match(regEx);
+
+        if (matchedVowels) {
+          return matchedVowels.length;
+        }
+        return 0;
+      }
+
+      // regEx and replace()
+      function vowelsCounter(text) {
+        let regEx = /[^aeiou]/gi;
+
+        let counter = text.replace(regEx, "");
+
+        return counter;
+      }
+
+      // using spread operator and filter()
+      function vowelsCounter(text) {
+        let vowels = ["a", "e", "i", "o", "u"];
+
+        let counter = [...text].filter(char => vowels.includes(char)).length;
+
+        return counter;
+      }
+
+      vowelsCounter("njoku ebere");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // toLowerCase(), split(""), reverse(), join(""), if...statement;
+      function wordPalindrome(word) {
+        let lowerCasedWord = word.toLowerCase();
+        let newWord = lowerCasedWord
+          .split("")
+          .reverse()
+          .join("");
+
+        if (newWord === lowerCasedWord) {
+          return true;
+        }
+        return false;
+      }
+
+      // toLowerCase(), spread operator, reverse(), join(""), if...statement;
+      function wordPalindrome(word) {
+        let lowerCasedWord = word.toLowerCase();
+        let newWord = [...lowerCasedWord].reverse().join("");
+
+        if (newWord === lowerCasedWord) {
+          return true;
+        }
+        return false;
+      }
+
+      // toLowerCase(), spread operator, if...statement;
+      function wordPalindrome(word) {
+        let lowerCasedWord = word.toLowerCase();
+        let newWord = [...lowerCasedWord].reduce((total, acc) => acc + total);
+
+        if (newWord === lowerCasedWord) {
+          return true;
+        }
+        return false;
+      }
+
+      // toLowerCase(), for...loop, join(""), if...statement;
+      function wordPalindrome(word) {
+        let lowerCasedWord = word.toLowerCase();
+        let newWord = [];
+
+        for (let i = lowerCasedWord.length; i >= 0; i--) {
+          newWord.push(lowerCasedWord[i]);
+        }
+
+        if (newWord.join("") === lowerCasedWord) {
+          return true;
+        }
+        return false;
+      }
+
+      // toLowerCase(), for...of...loop, if...statement;
+      function wordPalindrome(word) {
+        let lowerCasedWord = word.toLowerCase();
+        let newWord = "";
+
+        for (char of lowerCasedWord) {
+          newWord = char + newWord;
+        }
+
+        if (newWord === lowerCasedWord) {
+          return true;
+        }
+        return false;
+      }
+
+      // toLowerCase(), for...in...loop, if...statement;
+      function wordPalindrome(word) {
+        let lowerCasedWord = word.toLowerCase();
+        let newWord = "";
+
+        for (char in lowerCasedWord) {
+          newWord = lowerCasedWord[char] + newWord;
+        }
+
+        if (newWord === lowerCasedWord) {
+          return true;
+        }
+        return false;
+      }
+
+      wordPalindrome("Racecar");
+    </script>
+  </body>
+</html>

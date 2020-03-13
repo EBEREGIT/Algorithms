@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for...loop, if...statement and toLowerCase()
+      function hammingDistance(word, matchingWord) {
+        let count = 0;
+
+        if (word.length === matchingWord.length) {
+          for (let i = 0; i <= word.length; i++) {
+            if (word.toLowerCase()[i] !== matchingWord.toLowerCase()[i]) {
+              count++;
+            }
+          }
+
+          return count;
+        }
+        return "unequal word lengths";
+      }
+
+      // while...loop, if...statement and toLowerCase()
+      function hammingDistance(word, matchingWord) {
+        let count = 0;
+        let i = 0;
+
+        if (word.length === matchingWord.length) {
+          while (i <= word.length) {
+            if (word.toLowerCase()[i] !== matchingWord.toLowerCase()[i]) {
+              count++;
+            }
+            i++;
+          }
+
+          return count;
+        }
+        return "unequal word lengths";
+      }
+
+      // do...while...loop and toLowerCase()
+      function hammingDistance(word, matchingWord) {
+        let count = 0;
+        let i = 0;
+
+        if (word.length === matchingWord.length) {
+          do {
+            if (word.toLowerCase()[i] !== matchingWord.toLowerCase()[i]) {
+              count++;
+            }
+            i++;
+          } while (i <= word.length);
+
+          return count;
+        }
+        return "unequal word lengths";
+      }
+
+      hammingDistance("part", "path");
+    </script>
+  </body>
+</html>

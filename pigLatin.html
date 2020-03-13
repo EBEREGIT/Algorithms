@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for...of...loop, toLowerCase(), match(), slice(), regular expression
+      function pigLatin(word) {
+        let regEx = /[aeiou]/gi;
+        let newWord = word.toLowerCase();
+        let charIndex;
+
+        if (newWord[0].match(regEx)) {
+          return newWord + "way";
+        }
+
+        for (char of newWord) {
+          if (char.match(regEx)) {
+            charIndex = newWord.indexOf(char);
+            break;
+          }
+        }
+
+        return newWord.slice(charIndex) + newWord.slice(0, charIndex) + "ay";
+      }
+
+      // for...in...loop, toLowerCase(), .split(), includes(), join(), push(), splice()
+      function pigLatin(word) {
+        let firstConsonants = [];
+        let latinWord = "";
+        let vowels = ["a", "e", "i", "o", "u"];
+        let wordArray = word.toLowerCase().split("");
+
+        if (vowels.includes(wordArray[0])) {
+          return wordArray.join("") + "way";
+        }
+
+        for (char in wordArray) {
+          if (!vowels.includes(wordArray[char])) {
+            firstConsonants.push(wordArray[char]);
+          } else {
+            latinWord =
+              wordArray.splice(char).join("") + firstConsonants.join("") + "ay";
+              break;
+          }
+        }
+        return latinWord;
+      }
+
+      // for...loop, toLowerCase(), .split(), match(), join(), push(), splice(), length, regular expression
+      function pigLatin(word) {
+        let firstConsonants = [];
+        let latinWord = "";
+        let regEx = /[aeiou]/gi;
+        let wordArray = word.toLowerCase().split("");
+
+        if (wordArray[0].match(regEx)) {
+          return wordArray.join("") + "way";
+        }
+
+        for (let char = 0; char <= wordArray.length; char++) {
+          if (!wordArray[char].match(regEx)) {
+            firstConsonants.push(wordArray[char]);
+          } else {
+            latinWord =
+              wordArray.splice(char).join("") + firstConsonants.join("") + "ay";
+              break;
+          }
+        }
+        return latinWord;
+      }
+
+      pigLatin("hate");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // using .forEach(), toLowerCase(), split(), slice(), toUpperCase(), push() and join()
+      function sentenceCapitalization(sentence) {
+        let capitalizedSentence = [];
+
+        sentence
+          .toLowerCase()
+          .split(" ")
+          .forEach(element => {
+            let fistElement = element[0].toUpperCase();
+            let splicedElement = element.slice(1);
+
+            capitalizedSentence.push(fistElement + splicedElement);
+          });
+
+        return capitalizedSentence.join(" ");
+      }
+
+      // using .map(), toLowerCase(), split(), slice(), toUpperCase(), push() and join()
+      function sentenceCapitalization(sentence) {
+        let capitalizedSentence = [];
+
+        sentence
+          .toLowerCase()
+          .split(" ")
+          .map(word => {
+            capitalizedSentence.push(word[0].toUpperCase() + word.slice(1));
+          });
+
+        return capitalizedSentence.join(" ");
+      }
+
+      // using .map(), toLowerCase(), split(), toUpperCase(), push(), replace() and join()
+      function sentenceCapitalization(sentence) {
+        let capitalizedSentence = [];
+
+        sentence
+          .toLowerCase()
+          .split(" ")
+          .map(word => {
+            let newWord = word.replace(word[0], word[0].toUpperCase());
+            capitalizedSentence.push(newWord);
+          });
+
+        return capitalizedSentence.join(" ");
+      }
+
+      // using .map(), toLowerCase(), split(), toUpperCase(), replace() and join()
+      function sentenceCapitalization(sentence) {
+        let capitalizedSentence = [];
+
+        capitalizedSentence = sentence
+          .toLowerCase()
+          .split(" ")
+          .map(word => {
+            return word.replace(word[0], word[0].toUpperCase());
+          });
+
+        return capitalizedSentence.join(" ");
+      }
+
+      // using .map(), toLowerCase(), split(), toUpperCase(), slice() and join()
+      function sentenceCapitalization(sentence) {
+        let capitalizedSentence = [];
+
+        capitalizedSentence = sentence
+          .toLowerCase()
+          .split(" ")
+          .map(word => {
+            return word[0].toUpperCase() + word.slice(1);
+          });
+
+        return capitalizedSentence.join(" ");
+      }
+
+      // using for...of, toLowerCase(), split(), toUpperCase(), splice(), push(), spread operator, and join()
+      function sentenceCapitalization(sentence) {
+        let capitalizedSentence = [];
+        let newSentence = sentence.toLowerCase().split(" ");
+
+        for (word of newSentence) {
+          let newWord = word[0].toUpperCase() + [...word].splice(1).join("");
+
+          capitalizedSentence.push(newWord);
+        }
+
+        return capitalizedSentence.join(" ");
+      }
+
+      // using for...in, toLowerCase(), split(), toUpperCase(), splice(), push(), spread operator and join()
+      function sentenceCapitalization(sentence) {
+        let capitalizedSentence = [];
+        let newSentence = sentence.toLowerCase().split(" ");
+
+        for (word in newSentence) {
+          let newWord =
+            newSentence[word][0].toUpperCase() +
+            [...newSentence[word]].splice(1).join("");
+
+          capitalizedSentence.push(newWord);
+        }
+
+        return capitalizedSentence.join(" ");
+      }
+
+      // using forEach...loop, toLowerCase(), split(), toUpperCase(), replace(), push() and join()
+      function sentenceCapitalization(sentence) {
+        let capitalizedSentence = [];
+        let newSentence = sentence.toLowerCase().split(" ");
+
+        newSentence.forEach(element => {
+          let newWord = element.replace(element[0], element[0].toUpperCase());
+
+          capitalizedSentence.push(newWord);
+        });
+
+        return capitalizedSentence.join(" ");
+      }
+
+      sentenceCapitalization("njoku samson ebere");
+    </script>
+  </body>
+</html>

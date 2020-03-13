@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // sort(), length, toLowerCase(), if...statement, join()
+      function wordAnagrams(wordA, wordB) {
+        let newWordA = wordA.toLowerCase();
+        let newWordB = wordB.toLowerCase();
+
+        if (newWordA.length === newWordB.length) {
+          return (
+            [...newWordA].sort().join("") === [...newWordB].sort().join("")
+          );
+        }
+
+        return "unequal word lengths";
+      }
+
+      // sort(), length, hasOwnProperty(), JSON.stringify(), toLowerCase(), if...statement, for...of...loop
+      function wordAnagrams(wordA, wordB) {
+        let newWordA = wordA.toLowerCase();
+        let newWordB = wordB.toLowerCase();
+
+        function createWordObject(word) {
+          let wordObject = {};
+          for (char of [...word].sort()) {
+            if (wordObject.hasOwnProperty(char)) {
+              wordObject[char]++;
+            } else {
+              wordObject[char] = 1;
+            }
+          }
+          return wordObject;
+        }
+
+        if (newWordA.length === newWordB.length) {
+          wordAObject = createWordObject(newWordA);
+          wordBObject = createWordObject(newWordB);
+
+          return JSON.stringify(wordAObject) === JSON.stringify(wordBObject);
+        }
+        return "unequal word lengths";
+      }
+
+      // sort(), length, hasOwnProperty(), toLowerCase(), Object.keys(), Object.values(), push(), .every(), if...statement, for...loop, for...of...loop
+      function wordAnagrams(wordA, wordB) {
+        let newWordA = wordA.toLowerCase();
+        let newWordB = wordB.toLowerCase();
+        let result = [];
+
+        function createWordObject(word) {
+          let wordObject = {};
+          for (char of [...word].sort()) {
+            if (wordObject.hasOwnProperty(char)) {
+              wordObject[char]++;
+            } else {
+              wordObject[char] = 1;
+            }
+          }
+          return wordObject;
+        }
+
+        if (newWordA.length === newWordB.length) {
+          let wordAObject = createWordObject(newWordA);
+          let wordBObject = createWordObject(newWordB);
+
+          let wordAObjectKeys = Object.keys(wordAObject);
+          let wordBObjectKeys = Object.keys(wordBObject);
+
+          let wordAObjectValues = Object.values(wordAObject);
+          let wordBObjectValues = Object.values(wordBObject);
+
+          let wordObjectLength = wordAObjectKeys.length;
+
+          // check if wordA Object is equivalent to wordB Object
+          for (let i = 0; i <= wordObjectLength; i++) {
+            let check =
+              wordAObjectKeys[i] === wordBObjectKeys[i] &&
+              wordAObjectValues[i] === wordBObjectValues[i];
+
+            if (check) {
+              result.push(true);
+            } else {
+              result.push(false);
+            }
+          }
+
+          return result.every(currentValue => currentValue === true);
+        }
+
+        return "unequal word lengths";
+      }
+
+      wordAnagrams("silent", "listen");
+    </script>
+  </body>
+</html>

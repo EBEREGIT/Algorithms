@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // toLowerCase(), map(), includes(), sort(), join()
+      function sentenceAnagram(sentenceA, sentenceB) {
+        let newSentenceA = sentenceA.toLowerCase();
+        let newSentenceB = sentenceB.toLowerCase();
+        let alphabet = "abcdefghijklmnopqrstuvwxyz";
+        let numeric = "0123456789";
+        let alphanumeric = [...alphabet, ...numeric];
+
+        function createCharArray(sentence) {
+          let charArray = [...sentence].map(char => {
+            if (alphanumeric.includes(char)) {
+              return char;
+            }
+          });
+
+          return charArray.sort().join("");
+        }
+
+        charArrayA = createCharArray(newSentenceA);
+        charArrayB = createCharArray(newSentenceB);
+
+        return charArrayA === charArrayB;
+      }
+
+      // regular expression, toLowerCase(), forEach(), match(), sort(), push(), JSON.stringify()
+      function sentenceAnagram(sentenceA, sentenceB) {
+        let newSentenceA = sentenceA.toLowerCase();
+        let newSentenceB = sentenceB.toLowerCase();
+        let regEx = /\w/gi;
+
+        function createCharArray(sentence) {
+          let charArray = [];
+          [...sentence].forEach(char => {
+            if (char.match(regEx)) {
+              charArray.push(char);
+            }
+          });
+
+          return JSON.stringify(charArray.sort());
+        }
+
+        charArrayA = createCharArray(newSentenceA);
+        charArrayB = createCharArray(newSentenceB);
+
+        return charArrayA === charArrayB;
+      }
+
+      // toUpperCase(), toLowerCase(), forEach(), sort(), push(), hasOwnProperty(), JSON.stringify(), for...of...loop
+      function sentenceAnagram(sentenceA, sentenceB) {
+        let newSentenceA = sentenceA.toLowerCase();
+        let newSentenceB = sentenceB.toLowerCase();
+
+        function isDigit(char) {
+          return char >= 0 && char <= 9;
+        }
+
+        function isLetter(char) {
+          return char.toLowerCase() != char.toUpperCase();
+        }
+
+        function createCharObject(sentence) {
+          let charObject = {};
+          let charArray = [];
+
+          // sanitize the sentence
+          [...sentence].sort().forEach(char => {
+            if (isDigit(char) || isLetter(char)) {
+              charArray.push(char);
+            }
+          });
+
+          let newCharArray = charArray
+            .join("")
+            .split(" ")
+            .join("");
+
+          // create an object of the array
+          for (char of [...newCharArray]) {
+            if (charObject.hasOwnProperty(char)) {
+              charObject[char]++;
+            } else {
+              charObject[char] = 1;
+            }
+          }
+
+          return JSON.stringify(charObject);
+        }
+
+        charArrayA = createCharObject(newSentenceA);
+        charArrayB = createCharObject(newSentenceB);
+
+        return charArrayA === charArrayB;
+      }
+
+      sentenceAnagram("McDonald's restaurants", "Uncle Sam's standard rot");
+    </script>
+  </body>
+</html>

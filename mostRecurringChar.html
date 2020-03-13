@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for...in, for...of, hasOwnProperty(char) and if...statement
+      function mostRecurringChar(text) {
+        let charMap = {};
+        let maxValue = 0;
+        let maxKey = "";
+
+        for (char of text) {
+          if (charMap.hasOwnProperty(char)) {
+            charMap[char]++;
+          } else {
+            charMap[char] = 1;
+          }
+        }
+
+        for (char in charMap) {
+          if (charMap[char] > maxValue) {
+            maxValue = charMap[char];
+            maxKey = char;
+          }
+        }
+
+        return maxKey;
+      }
+
+      // for...in, for...Loop, hasOwnProperty(char) and if...statement
+      function mostRecurringChar(text) {
+        let charMap = {};
+        let maxValue = 0;
+        let maxKey = "";
+
+        for (let i = 0; i <= text.length; i++) {
+          if (charMap.hasOwnProperty(text[i])) {
+            charMap[text[i]]++;
+          } else {
+            charMap[text[i]] = 1;
+          }
+        }
+
+        for (char in charMap) {
+          if (charMap[char] > maxValue) {
+            maxValue = charMap[char];
+            maxKey = char;
+          }
+        }
+
+        return maxKey;
+      }
+
+      //for...of, if...statement, hasOwnProperty(char), Object.keys(), Object.values(), indexOf() and Math.max()
+      function mostReoccuringChar(text) {
+        let charMap = {};
+        let charMapKeys = [];
+        let charMapValues = [];
+        let maxValue = 0;
+
+        for (char of text) {
+          if (charMap.hasOwnProperty(char)) {
+            charMap[char]++;
+          } else {
+            charMap[char] = 1;
+          }
+        }
+
+        charMapKeys = Object.keys(charMap);
+        charMapValues = Object.values(charMap);
+        maxValue = Math.max(...charMapValues);
+
+        return charMapKeys[charMapValues.indexOf(maxValue)];
+      }
+
+      //for...Loop, if...statement, hasOwnProperty(char), Object.keys(), Object.values(), indexOf() and Math.max()
+      function mostReoccuringChar(text) {
+        let charMap = {};
+        let charMapKeys = [];
+        let charMapValues = [];
+        let maxValue = 0;
+
+        for (let i = 0; i <= text.length; i++) {
+          if (charMap.hasOwnProperty(text[i])) {
+            charMap[text[i]]++;
+          } else {
+            charMap[text[i]] = 1;
+          }
+        }
+
+        charMapKeys = Object.keys(charMap);
+        charMapValues = Object.values(charMap);
+        maxValue = Math.max(...charMapValues);
+
+        return charMapKeys[charMapValues.indexOf(maxValue)];
+      }
+
+      //for...of, if...statement, hasOwnProperty(char), Object.entries
+      function mostReoccuringChar(text) {
+        let charMap = {};
+        let charMapEntries = [];
+        let maxValue = 0;
+        let maxKey = "";
+
+        for (char of text) {
+          if (charMap.hasOwnProperty(char)) {
+            charMap[char]++;
+          } else {
+            charMap[char] = 1;
+          }
+        }
+
+        charMapEntries = Object.entries(charMap);
+
+        for (entry of charMapEntries) {
+          if (entry[1] > maxValue) {
+            maxValue = entry[1];
+            maxKey = entry[0];
+          }
+        }
+
+        return maxKey;
+      }
+
+      //for...Loop, if...statement, hasOwnProperty(char), Object.entries
+      function mostReoccuringChar(text) {
+        let charMap = {};
+        let charMapEntries = [];
+        let maxValue = 0;
+        let maxKey = "";
+
+        for (let i = 0; i <= text.length; i++) {
+          if (charMap.hasOwnProperty(text[i])) {
+            charMap[text[i]]++;
+          } else {
+            charMap[text[i]] = 1;
+          }
+        }
+
+        charMapEntries = Object.entries(charMap);
+
+        for (entry of charMapEntries) {
+          if (entry[1] > maxValue) {
+            maxValue = entry[1];
+            maxKey = entry[0];
+          }
+        }
+
+        return maxKey;
+      }
+
+      mostReoccuringChar("samson");
+    </script>
+  </body>
+</html>

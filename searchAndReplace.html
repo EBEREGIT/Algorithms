@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // .replace()
+      function searchAndReplace(string, word, replacement) {
+        return string.replace(word, replacement);
+      }
+
+      // .slit() and join()
+      function searchAndReplace(string, word, replacement) {
+        return string.split(word).join(replacement);
+      }
+
+      // .forEach...Loop, split,indexOf, join, ternery operator
+      function searchAndReplace(string, word, replacement) {
+        let stringArray = string.split(" ");
+
+        stringArray.forEach(element => {
+          element === word
+            ? (stringArray[stringArray.indexOf(word)] = replacement)
+            : element;
+        });
+
+        return stringArray.join(" ");
+      }
+
+      // .map(), split,indexOf, join, ternery operator
+      function searchAndReplace(string, word, replacement) {
+        let stringArray = string.split(" ");
+
+        stringArray.map(element => {
+          element === word
+            ? (stringArray[stringArray.indexOf(word)] = replacement)
+            : element;
+        });
+
+        return stringArray.join(" ");
+      }
+
+      // for...loop, split,indexOf, join, ternery operator
+      function searchAndReplace(string, word, replacement) {
+        let stringArray = string.split(" ");
+
+        for (let i = 0; i <= stringArray.length; i++) {
+          stringArray[i] === word
+            ? (stringArray[stringArray.indexOf(word)] = replacement)
+            : stringArray[i];
+        }
+
+        return stringArray.join(" ");
+      }
+
+      // .for...in...loop, split,indexOf, join, ternery operator
+      function searchAndReplace(string, word, replacement) {
+        let stringArray = string.split(" ");
+
+        for (element in stringArray) {
+          stringArray[element] === word
+            ? (stringArray[stringArray.indexOf(word)] = replacement)
+            : stringArray[element];
+        }
+
+        return stringArray.join(" ");
+      }
+
+      // .for...of...loop, split,indexOf, join, ternery operator
+      function searchAndReplace(string, word, replacement) {
+        let stringArray = string.split(" ");
+
+        for (element of stringArray) {
+          element === word
+            ? (stringArray[stringArray.indexOf(word)] = replacement)
+            : element;
+        }
+
+        return stringArray.join(" ");
+      }
+
+      // RegExp(), for...of...loop, split(), match(), indexOf(), join()
+      function searchAndReplace(string, word, replacement) {
+        let stringArray = string.split(" ");
+        let regEx = new RegExp(word, "g");
+
+        for (element of stringArray) {
+          element.match(regEx)
+            ? (stringArray[stringArray.indexOf(word)] = replacement)
+            : element;
+        }
+
+        return stringArray.join(" ");
+      }
+
+      // RegExp(), for...in...loop, split(), test(), indexOf(), join()
+      function searchAndReplace(string, word, replacement) {
+        let stringArray = string.split(" ");
+        let regEx = new RegExp(word, "g");
+
+        for (element in stringArray) {
+          regEx.test(stringArray[element])
+            ? (stringArray[stringArray.indexOf(word)] = replacement)
+            : stringArray[element];
+        }
+
+        return stringArray.join(" ");
+      }
+
+      searchAndReplace("Njoku Samson Plenty", "Plenty", "Ebere");
+    </script>
+  </body>
+</html>

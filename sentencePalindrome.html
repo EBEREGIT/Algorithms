@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // toLowerCase(), split(), map(), includes(), reverse(), join()
+      function sentencePalindrome(sentence) {
+        let newSentence = sentence.toLowerCase().split("");
+        let newSentenceArray = [];
+        let alphabet = "abcdefghijklmnopqrstuvwxyz";
+        let numeric = "0123456789";
+        let alphanumeric = [...alphabet, ...numeric];
+
+        newSentenceArray = newSentence.map(char => {
+          if (alphanumeric.includes(char)) {
+            return char;
+          }
+        });
+
+        let sanitizedSentence = newSentenceArray.join("");
+
+        // reverse sentence
+        let finalSentence = [...sanitizedSentence].reverse().join("");
+
+        return finalSentence === sanitizedSentence;
+      }
+
+      // regular expression, toLowerCase(), split(), for...of...loop, match(), reverse(), join(), push()
+      function sentencePalindrome(sentence) {
+        let newSentence = sentence.toLowerCase().split("");
+        let regEx = /\w/gi;
+        let newSentenceArray = [];
+
+        for (char of newSentence) {
+          if (char.match(regEx)) {
+            newSentenceArray.push(char);
+          }
+        }
+
+        let sanitizedSentence = newSentenceArray.join("");
+
+        // reverse sentence
+        let finalSentence = [...sanitizedSentence].reverse().join("");
+
+        return finalSentence === sanitizedSentence;
+      }
+
+      // toUpperCase(), toLowerCase(), split(), forEach...loop, reduce(), join(), push()
+      function sentencePalindrome(sentence) {
+        let newSentence = sentence.toLowerCase().split("");
+        let newSentenceArray = [];
+
+        function isLetter(char) {
+          return char.toLowerCase() != char.toUpperCase();
+        }
+
+        function isDigit(char) {
+          return char >= 0 && char <= 9;
+        }
+
+        newSentence.forEach(char => {
+          if (isDigit(char) || isLetter(char)) {
+            newSentenceArray.push(char);
+          }
+        });
+
+        let sanitizedSentence = newSentenceArray
+          .join("")
+          .split(" ")
+          .reduce((acc, char) => acc + char);
+
+        // reverse sentence
+        let finalSentence = [...sanitizedSentence].reduce(
+          (acc, char) => char + acc
+        );
+
+        return finalSentence === sanitizedSentence;
+      }
+
+      sentencePalindrome("Was it a car or a cat I saw?");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // .split() and .sort()
+      function longestWord(sentence) {
+        return sentence
+          .split(" ")
+          .sort((word, nextWord) => nextWord.length - word.length)[0];
+      }
+
+      // forEach(), if...statement and .split()
+      function longestWord(sentence) {
+        let splittedSentence = sentence.split(" ");
+        let maxLength = 0;
+        let maxWord = "";
+
+        splittedSentence.forEach(word => {
+          if (word.length > maxLength) {
+            maxLength = word.length;
+            maxWord = word;
+          }
+        });
+
+        return maxWord;
+      }
+
+      // map(), if...statement and .split()
+      function longestWord(sentence) {
+        let splittedSentence = sentence.split(" ");
+        let maxLength = 0;
+        let maxWord = "";
+
+        splittedSentence.map(word => {
+          if (word.length > maxLength) {
+            maxLength = word.length;
+            maxWord = word;
+          }
+        });
+
+        return maxWord;
+      }
+
+      // for...loop, if...statement and .split()
+      function longestWord(sentence) {
+        let splittedSentence = sentence.split(" ");
+        let maxLength = 0;
+        let maxWord = "";
+
+        for (let i = 0; i < splittedSentence.length; i++) {
+          if (splittedSentence[i].length > maxLength) {
+            maxLength = splittedSentence[i].length;
+            maxWord = splittedSentence[i];
+          }
+        }
+
+        return maxWord;
+      }
+
+      // for...of...loop, if...statement and .split()
+      function longestWord(sentence) {
+        let splittedSentence = sentence.split(" ");
+        let maxLength = 0;
+        let maxWord = "";
+
+        for (word of splittedSentence) {
+          if (word.length > maxLength) {
+            maxLength = word.length;
+            maxWord = word;
+          }
+        }
+
+        return maxWord;
+      }
+
+      // for...in...loop, if...statement and .split()
+      function longestWord(sentence) {
+        let splittedSentence = sentence.split(" ");
+        let maxLength = 0;
+        let maxWord = "";
+
+        for (word in splittedSentence) {
+          if (splittedSentence[word].length > maxLength) {
+            maxLength = splittedSentence[word].length;
+            maxWord = splittedSentence[word];
+          }
+        }
+
+        return maxWord;
+      }
+
+      longestWord("Top Shelf Web Development Training on Scotch");
+    </script>
+  </body>
+</html>
