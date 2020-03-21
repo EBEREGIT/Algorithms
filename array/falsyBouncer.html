@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for...of...loop, push()
+      function falsyBouncer(array) {
+        let sanitizedArray = [];
+
+        for (element of array) {
+          element ? sanitizedArray.push(element) : sanitizedArray;
+        }
+
+        return sanitizedArray;
+      }
+
+      // forEach...loop, includes(), push()
+      function falsyBouncer(array) {
+        let falsyValues = [false, null, undefined, 0, NaN, ""];
+        let sanitizedArray = [];
+
+        array.forEach(element => {
+          !falsyValues.includes(element)
+            ? sanitizedArray.push(element)
+            : sanitizedArray;
+        });
+
+        return sanitizedArray;
+      }
+
+      // filter()
+      function falsyBouncer(array) {
+        let sanitizedArray = array.filter(element => Boolean(element));
+
+        return sanitizedArray;
+      }
+
+      // reduce()
+      function falsyBouncer(array) {
+        let sanitizedArray = [];
+
+        sanitizedArray = array.reduce((acc, element) => {
+          if (Boolean(element)) {
+            return [...acc, element];
+          } else {
+            return acc;
+          }
+        }, []);
+
+        return sanitizedArray;
+      }
+
+      falsyBouncer([1, 0, null, "", 5]);
+    </script>
+  </body>
+</html>

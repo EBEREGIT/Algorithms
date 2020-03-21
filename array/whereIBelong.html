@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // push(), sort(), indexOf()
+      function whereIBelong(array, value) {
+        let newArray = array.push(value);
+
+        let sortedArray = array.sort((a, b) => a - b);
+
+        return array.indexOf(value);
+      }
+
+      // for...in...loop, break
+      function whereIBelong(array, value) {
+        let newArray = array.sort((a, b) => a - b);
+        let position = "";
+
+        for (char in newArray) {
+          if (newArray[char] > value) {
+            position = char;
+            break;
+          } else {
+            position = newArray.length;
+          }
+        }
+
+        return position;
+      }
+
+      // filter(), for...of...loop, indexOf()
+      function whereIBelong(array, value) {
+        let newArray = array.sort((a, b) => a - b);
+        let maxValue = 0;
+
+        // collect all array values less than the given value
+        let smallerValues = newArray.filter(char => value > char);
+
+        if (smallerValues === []) {
+          return 0;
+        }
+
+        for (char of smallerValues) {
+          char > maxValue ? (maxValue = char) : maxValue;
+        }
+
+        return newArray.indexOf(maxValue) + 1;
+      }
+
+      whereIBelong([1, 2, 3, 4], 3.5);
+    </script>
+  </body>
+</html>

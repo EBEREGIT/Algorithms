@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  using split(), .reverse(), .join(), toString(), parseInt(), Math.sign()
+      function intReversal(int) {
+        let intToString = int.toString();
+
+        let reversedString = intToString
+          .split("")
+          .reverse()
+          .join("");
+
+        let stringToInt = parseInt(reversedString, 10);
+
+        return stringToInt * Math.sign(int);
+      }
+
+      //  using reduce, toString(), parseInt(), Math.sign()
+      function intReversal(int) {
+        let intToString = int.toString();
+
+        let reversedString = [...intToString].reduce((acc, char) => char + acc);
+
+        let stringToInt = parseInt(reversedString, 10);
+
+        return stringToInt * Math.sign(int);
+      }
+
+      //  using for...of...loop, toString(), parseInt(), Math.sign()
+      function intReversal(int) {
+        let intToString = int.toString();
+        let reversedString = "";
+
+        for (char of [...intToString]) {
+          reversedString = char + reversedString;
+        }
+
+        let stringToInt = parseInt(reversedString, 10);
+
+        return stringToInt * Math.sign(int);
+      }
+
+      intReversal(1234);
+    </script>
+  </body>
+</html>

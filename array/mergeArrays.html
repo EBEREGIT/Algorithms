@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for...of...loop, spread operator, includes(), push(), forEach()
+      function mergeArrays(...arrays) {
+        let combineArray = [];
+        let finalArray = [];
+
+        for (array of arrays) {
+          combineArray = [...combineArray, ...array];
+        }
+
+        combineArray.forEach(element => {
+          if (!finalArray.includes(element)) {
+            finalArray.push(element);
+          }
+        });
+
+        return finalArray;
+      }
+
+      // for...of...loop, spread operator, includes(), push(), Array.from()
+      function mergeArrays() {
+        let givenArray = Array.from(arguments);
+        let combineArray = [];
+        let finalArray = [];
+
+        for (array of givenArray) {
+          combineArray = [...combineArray, ...array];
+        }
+
+        for (element of combineArray) {
+          if (!finalArray.includes(element)) {
+            finalArray.push(element);
+          }
+        }
+
+        return finalArray;
+      }
+
+      // for...of...loop, spread operator, Set()
+      function mergeArrays(...arrays) {
+        let combineArray = [];
+        let finalArray = [];
+
+        for (array of arrays) {
+          combineArray = [...combineArray, ...array];
+        }
+
+        finalArray = [...new Set([...combineArray])];
+
+        return finalArray;
+      }
+
+      // for...of...loop, spread operator, filter()
+      function mergeArrays(...arrays) {
+        let combineArray = [];
+        let finalArray = [];
+
+        for (array of arrays) {
+          combineArray = [...combineArray, ...array];
+        }
+
+        finalArray = combineArray.filter(
+          (element, index) => combineArray.indexOf(element) === index
+        );
+
+        return finalArray;
+      }
+
+      // for...of...loop, spread operator, includes(), reduce(), Array.from()
+      function mergeArrays() {
+        let givenArray = Array.from(arguments);
+        let combineArray = [];
+        let finalArray = [];
+
+        for (array of givenArray) {
+          combineArray = [...combineArray, ...array];
+        }
+
+        finalArray = combineArray.reduce((acc, cha) => {
+          if (acc.includes(cha)) {
+            return acc;
+          } else {
+            return [...acc, cha];
+          }
+        }, []);
+
+        return finalArray;
+      }
+      
+      mergeArrays([1, 2, 3, 3, 3], [1, 4, 5, 2], [1, 4, 8, 9]);
+    </script>
+  </body>
+</html>

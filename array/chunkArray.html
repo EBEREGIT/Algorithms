@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for...of..loop, push()
+      function chunkArray(arr, limiter) {
+        let finalArray = [];
+        let tempArray = [];
+
+        for (value of arr) {
+          if (tempArray.length < limiter) {
+            tempArray.push(value);
+          } else {
+            finalArray.push(tempArray);
+            tempArray = [];
+            tempArray.push(value);
+          }
+        }
+
+        finalArray.push(tempArray);
+        return finalArray;
+      }
+
+      // for...loop, push(), slice()
+      function chunkArray(arr, limiter) {
+        let finalArray = [];
+
+        for (let i = 0; i <= arr.length; i += limiter) {
+          finalArray.push(arr.slice(i, i + limiter));
+        }
+        return finalArray;
+      }
+
+      // for...loop, push(), splice(), if...statement
+      function chunkArray(arr, limiter) {
+        let finalArray = [];
+        let arrayLength = arr.length;
+
+        for (let i = 0; i <= arrayLength; i++) {
+          if (arr.length != 0) {
+            finalArray.push(arr.splice(0, limiter));
+          }
+        }
+        return finalArray;
+      }
+
+      chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 3);
+    </script>
+  </body>
+</html>
