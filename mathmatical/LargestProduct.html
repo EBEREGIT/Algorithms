@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ternary operator, .sort()
+      function largestProduct(array) {
+        let desSort = array.sort((a, b) => b - a);
+
+        // min1 * min2 * max1
+        let productA =
+          desSort[desSort.length - 1] *
+          desSort[desSort.length - 2] *
+          desSort[0];
+
+        // max1 * max2 * max3
+        let productB = desSort[0] * desSort[1] * desSort[2];
+
+        return productA > productB ? productA : productB;
+      }
+
+      // for...loop, ternary operator, if... statement, .sort()
+      function largestProduct(array) {
+        let desSort = array.sort((a, b) => b - a);
+        let productA = 1;
+        let productB = 1;
+
+        // min1 * min2 * max1
+        for (let i = desSort.length - 2; i < desSort.length; i++) {
+          productA = productA * desSort[i];
+        }
+        productA = productA * desSort[0];
+
+        // max1 * max2 * max3
+        for (let i = 0; i <= desSort.length; i++) {
+          productB = productB * desSort[i];
+          if (i === 2) break;
+        }
+
+        return productA > productB ? productA : productB;
+      }
+
+      largestProduct([5, 3, 4, 1, 2]);
+    </script>
+  </body>
+</html>

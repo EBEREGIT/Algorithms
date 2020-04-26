@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // .map(), sort(), join(), Set(), forEach(), filter(), push, spread operator
+      function groupAnagrams(array) {
+        let finalArray = [];
+
+        // rearrange each word to check for anagram
+        let rearranged = array.map(element => {
+          return [...element].sort().join("");
+        });
+
+        // remove duplicates
+        let uniqueArray = [...new Set(rearranged)];
+
+        // compare original array with dupliates
+        uniqueArray.forEach(word => {
+          let chunk = array.filter(char => word === [...char].sort().join(""));
+
+          finalArray.push(chunk.sort());
+        });
+
+        return finalArray;
+      }
+
+      // for...of...loop, sort(), join(), filter(), push, split(), indexOf()
+      function groupAnagrams(array) {
+        let finalArray = [];
+        let rearranged = [];
+
+        // rearrange each word to check for anagram
+        for (element of array) {
+          rearranged.push(
+            element
+              .split("")
+              .sort()
+              .join("")
+          );
+        }
+
+        // remove duplicates
+        let uniqueArray = rearranged.filter(
+          (member, index) => rearranged.indexOf(member) === index
+        );
+
+        // compare original array with dupliates
+        for (word of uniqueArray) {
+          let chunk = [];
+
+          for (char of array) {
+            if (
+              word ===
+              char
+                .split("")
+                .sort()
+                .join("")
+            ) {
+              chunk.push(char);
+            }
+          }
+          finalArray.push(chunk.sort());
+        }
+        return finalArray;
+      }
+
+      // for...loop, while...loop, sort(), join(), push(), split(), includes()
+      function groupAnagrams(array) {
+        let finalArray = [];
+        let rearranged = [];
+
+        // rearrange each word to check for anagram
+        let i = 0;
+        while (i < array.length) {
+          rearranged.push(
+            array[i]
+              .split("")
+              .sort()
+              .join("")
+          );
+          i++;
+        }
+
+        // remove duplicates
+        let uniqueArray = [];
+        for (let j = 0; j <= rearranged.length; j++) {
+          if (!uniqueArray.includes(rearranged[j])) {
+            uniqueArray.push(rearranged[j]);
+          }
+        }
+
+        // compare original array with dupliates
+        let counter = 0;
+        while (counter < uniqueArray.length) {
+          let chunk = [];
+
+          for (let k = 0; k < array.length; k++) {
+            if (
+              uniqueArray[counter] ===
+              array[k]
+                .split("")
+                .sort()
+                .join("")
+            ) {
+              chunk.push(array[k]);
+            }
+          }
+
+          if (chunk.length != 0) {
+            finalArray.push(chunk.sort());
+          }
+          counter++;
+        }
+        return finalArray;
+      }
+
+      groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat", "ant", "tab"]);
+    </script>
+  </body>
+</html>

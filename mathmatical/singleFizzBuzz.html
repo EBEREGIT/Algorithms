@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // if statement
+      function fizzBuzz(num) {
+        function multipleOf3(n) {
+          return n % 3 === 0;
+        }
+
+        function multipleOf5(n) {
+          return n % 5 === 0;
+        }
+
+        if (multipleOf3(num) && multipleOf5(num)) {
+          return "FizzBuzz";
+        }
+
+        if (multipleOf3(num)) {
+          return "Fizz";
+        }
+
+        if (multipleOf5(num)) {
+          return "Buzz";
+        } else {
+          return num;
+        }
+      }
+
+      // if...else statement
+      function fizzBuzz(num) {
+        function multipleOf3(n) {
+          return n % 3 === 0;
+        }
+
+        function multipleOf5(n) {
+          return n % 5 === 0;
+        }
+
+        function multipleOf15(n) {
+          return n % 15 === 0;
+        }
+
+        if (multipleOf15(num)) {
+          return "FizzBuzz";
+        } else if (multipleOf3(num)) {
+          return "Fizz";
+        } else if (multipleOf5(num)) {
+          return "Buzz";
+        } else {
+          return num;
+        }
+      }
+
+      // switch...case statement
+      function fizzBuzz(num) {
+        function multipleOf3(n) {
+          return n % 3 === 0;
+        }
+
+        function multipleOf5(n) {
+          return n % 5 === 0;
+        }
+
+        switch (multipleOf3(num) && multipleOf5(num)) {
+          case true:
+            return "FizzBuzz";
+            break;
+        }
+
+        switch (multipleOf3(num)) {
+          case true:
+            return "Fizz";
+            break;
+        }
+
+        switch (multipleOf5(num)) {
+          case true:
+            return "Buzz";
+            break;
+          default:
+            return num;
+        }
+      }
+
+      // switch...case statement
+      function fizzBuzz(num) {
+        function multipleOf3(n) {
+          return n % 3 === 0;
+        }
+
+        function multipleOf5(n) {
+          return n % 5 === 0;
+        }
+
+        function multipleOf15(n) {
+          return n % 15 === 0;
+        }
+
+        switch (multipleOf15(num)) {
+          case true:
+            return "FizzBuzz";
+            break;
+        }
+
+        switch (multipleOf3(num)) {
+          case true:
+            return "Fizz";
+            break;
+        }
+
+        switch (multipleOf5(num)) {
+          case true:
+            return "Buzz";
+            break;
+          default:
+            return num;
+        }
+      }
+
+      fizzBuzz(15);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isomorphic(wordA, wordB) {
+        // split the words
+        let wordArrayA = [...wordA];
+        let wordArrayB = [...wordB];
+        let wordObject = {};
+
+        // terminate if word length is not equal
+        if (wordArrayA.length !== wordArrayB.length) {
+          return "unequal word length";
+        }
+
+        // loop through to form an object
+        for (let i = 0; i < wordArrayA.length; i++) {
+          if (wordArrayA[i] != wordArrayB[1]) {
+            if (wordObject.hasOwnProperty(wordArrayA[i])) {
+              // create an array of keys and values
+              let objectValues = Object.values(wordObject);
+              let objectKeys = Object.keys(wordObject);
+
+              // terminate if the already existing Key's value do not match the Key's value again
+              if (
+                objectValues[objectKeys.indexOf(wordArrayA[i])] !==
+                wordArrayB[i]
+              ) {
+                return false;
+              }
+            } else {
+              wordObject[wordArrayA[i]] = wordArrayB[i];
+            }
+          } else {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      function isomorphic(wordA, wordB) {
+        let wordObject = {};
+
+        // terminate if word length is not equal
+        if (wordA.length !== wordA.length) {
+          return "unequal word length";
+        }
+
+        // loop through to form an object
+        for (let i = 0; i < wordA.length; i++) {
+          if (wordA[i] !== wordB[i]) {
+            // check if wordA already exist in the wordObject
+            if (!wordObject[wordA[i]]) {
+              wordObject[wordA[i]] = wordB[i];
+
+              // terminate if the already existing Key's value do not match the Key's value again
+            } else if (wordObject[wordA[i]] !== wordB[i]) {
+              return false;
+            }
+          } else {
+            return false;
+          }
+        }
+
+        return true;
+      }
+      isomorphic("egg", "sad");
+    </script>
+  </body>
+</html>

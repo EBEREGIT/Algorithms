@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // filter(), join(), includes(), spread operator, if...statment, for...of, indexOf(), push(), pop()
+      function matchingParenthesis(string) {
+        const parenthesis = "(){}[]",
+          openingParenthesis = "({[",
+          closingParenthesis = ")}]";
+        let stack = [];
+
+        // extract all parenthesis
+        let filteredString = [...string].filter((char) =>
+          [...parenthesis].includes(char)
+        );
+        console.log(filteredString.join(""));
+
+        // terminate if there is no parenthesis found
+        if (filteredString.length === 0) return "No parenthesis found";
+
+        // terminate if there is just one parenthesis
+        if (filteredString.length === 1)
+          return "parenthesis should be in two(s)";
+
+        // terminate if it starts with a closing parenthesis
+        if (closingParenthesis.includes(filteredString[0]))
+          return "Cannot begin with closing parenthesis";
+
+        // terminate if it ends with an opening parenthesis
+        if (
+          openingParenthesis.includes(filteredString[filteredString.length - 1])
+        )
+          return "Cannot end with opening parenthesis";
+
+        // terminate if length is not even number
+        if (filteredString.length % 2 === 1) {
+          return "unequal openning and closing tags";
+        }
+
+        // loop through the filteredString
+        for (char of filteredString) {
+          // add the current char to the stack if it is an openning brace
+          if (openingParenthesis.includes(char)) {
+            stack.push(char);
+          } else {
+            let lastStack = stack[stack.length - 1];
+
+            // if a closing brace match the last opening brace in the stack, pop the last opening brace from the stack
+            if (
+              closingParenthesis.indexOf(char) ===
+              openingParenthesis.indexOf(lastStack)
+            ) {
+              stack.pop(lastStack);
+            } else {
+              return "closing brace does not match opening brace";
+            }
+          }
+        }
+
+        if (stack.length !== 0) return "braces do not match";
+        return "All openning brace has a closing brace to match";
+      }
+
+      // filter(), join(), hasOwnProperty(), split(""), if...statment, for...of, match(), push(), pop()
+      function matchingParenthesis(string) {
+        const regEx = /[[\](){}]/gi;
+        let stack = [];
+        const parenthesisMap = { "(": ")", "{": "}", "[": "]" };
+
+        // extract all parenthesis
+        let filteredString = string
+          .split("")
+          .filter((char) => char.match(regEx));
+        console.log(filteredString.join(""));
+
+        // terminate if there is no parenthesis found
+        if (filteredString.length === 0) return "No parenthesis found";
+
+        // terminate if there is just one parenthesis
+        if (filteredString.length === 1)
+          return "parenthesis should be in two(s)";
+
+        // terminate if it starts with a closing parenthesis
+        if (!parenthesisMap.hasOwnProperty(filteredString[0]))
+          return "Cannot begin with closing parenthesis";
+
+        // terminate if it ends with an opening parenthesis
+        if (
+          parenthesisMap.hasOwnProperty(
+            filteredString[filteredString.length - 1]
+          )
+        )
+          return "Cannot end with opening parenthesis";
+
+        // terminate if length is not even number
+        if (filteredString.length % 2 === 1) {
+          return "unequal openning and closing tags";
+        }
+
+        // loop through the filteredString
+        for (char of filteredString) {
+          // add the current char to the stack if it is an openning brace
+          if (parenthesisMap.hasOwnProperty(char)) {
+            stack.push(char);
+          } else {
+            let lastStack = stack[stack.length - 1];
+
+            // if a closing brace match the last opening brace in the stack, pop the last opening brace from the stack
+            if (char === parenthesisMap[lastStack]) {
+              stack.pop(lastStack);
+            } else {
+              return "closing brace does not match opening brace";
+            }
+          }
+        }
+
+        if (stack.length !== 0) return "braces do not match";
+        return "All openning brace has a closing brace to match";
+      }
+
+      matchingParenthesis("()[]{[]}");
+    </script>
+  </body>
+</html>

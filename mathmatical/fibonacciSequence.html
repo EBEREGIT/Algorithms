@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for...loop
+      function fibonacciSequence(array, limit) {
+        let finalArray = [...array];
+
+        for (let i = 0; i < limit - 1; i++) {
+          let sum = array[0] + array[1];
+          finalArray.push(sum);
+          array = [array[1], sum];
+        }
+
+        return finalArray;
+      }
+
+      // while...loop
+      function fibonacciSequence(array, limit) {
+        let finalArray = [...array];
+        let counter = 0;
+
+        while (counter < limit - 1) {
+          let sum = array[0] + array[1];
+          finalArray.push(sum);
+          array = [array[1], sum];
+          counter++;
+        }
+
+        return finalArray;
+      }
+
+      // do...while...loop
+      function fibonacciSequence(array, limit) {
+        let finalArray = [...array];
+        let counter = 0;
+
+        do {
+          let sum = array[0] + array[1];
+          finalArray.push(sum);
+          array = [array[1], sum];
+          counter++;
+        } while (counter < limit - 1);
+
+        return finalArray;
+      }
+      fibonacciSequence([10, 20], 9);
+    </script>
+  </body>
+</html>
